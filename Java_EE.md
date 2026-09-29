@@ -107,4 +107,116 @@ $
 
 # 网页编程
 
+## HTML 文档的基本结构
+
+```html
+<!DOCTYPE html>
+<html lang = "zh-CN">
+    <head>
+        <meta charset = "UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Hello world!</h1>
+    </body>
+</html>
+```
+
+`<!DOCTYPE html>` 文档类型声明，必须位于文档第一行
+
+`<html>` 根元素，包裹整个页面
+
+`<head>` 头部，其中信息（编码、标题、引入的 `CSS` ），不直接显示
+
+`<title>` 页面标题，仅显示在浏览器标签页上
+
+`<body>` 主体
+
+`<meta charset = "UTF-8">` 声明字符编码
+
+## 超链接 `a`
+
+```html
+<a href = "https://github.com/dashboard" target = "_blank">Github Dashboard</a>
+<!--跳转到外部网址-->
+
+<a href="#section2">跳转至第二节</a>
+<!--跳转到页内锚点，即本页指定位置#id -->
+```
+
+`href` 指定目标地址，是超链接的核心属性
+
+`target = "_blank"` 在新标签页中打开，避免用户离开本站
+
+## 列表
+
+```html
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ul>
+<!--无序列表-->
+
+<ol>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ol>
+<!--有序列表-->
+```
+
+## 页面区域
+
+- div：**块级容器**
+
+    独占一行，用于**把页面分为页头、主体、页脚等区域**，本身没有任何默认样式
+
+    ```html
+    <div id = "header">页头区域</div>
+    <div id = "main">
+        <p>主体内容</p>
+    </div>
+    <div id = "footer">页脚区域</div>
+    ```
+
+- span：**行内容器**
+  
+    不独占一行，用于包裹一句话中的数个关键字，以便 `CSS` 为其设置样式
+
+    ```html
+    <p>span 标签可以用于修改关键字的样式，如
+        <span class = "highlight">高光</span>
+    </p>
+    ```
+
+## 表格
+
+## 表单
+
+**用户向服务器提交数据的唯一入口**
+
+```html
+<form action = "RegisterServlet" method = "post">
+    用户名：<input type = "text" name = "username">
+    <input type = "submit" value = "提交">
+</form>
+```
+
+- 要提交的**所有控件必须写在 `form` 容器内**，不在其中的容器不会被提交
+- 一个页面中可以有多个 `form` ，但每次只提交一个
+
+### 常用表单控件
+
+| 控件 | 写法 | 说明 |
+| -- | -- | -- |
+| 文本框 | `<input type="text" name="username">` | 单行文字输入 |
+| 密码框 | `<input type="password" name="pwd">` | 输入内容掩码显示为圆点 |
+| 单选按钮 | `<input type="radio" name="gender" value="male">` | name相同才算同一组，才能互斥 |
+| 复选框   | `<input type="checkbox" name="hobby" value="read">` | 可多选；同name的值以数组提交 |
+| 下拉列表 | `<select name="province"><option>...</option>` | 选项写在option中，省空间 |
+| 文本域   | `<textarea name="intro" rows="4"></textarea>` | 多行文本，用于简介、备注 |
+| 隐藏域   | `<input type="hidden" name="source" value="campus">` | 用户看不到，但会随表单提交 |
+| 提交按钮 | `<input type="submit" value="提交注册">` | 点击后发送整个表单 |
+
 # 框架编程
