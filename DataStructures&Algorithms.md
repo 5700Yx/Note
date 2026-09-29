@@ -5150,7 +5150,18 @@ $\qquad$ 4.最短路径不一定是唯一的。从一个顶点到达另一个顶
 **最短路径树**<br>
 $\qquad$ 给定一副加权有向图和一个顶点 s ，以 s 为起点的一棵最短路径树是图的一副子图，它包含顶点 s 以及 s 可达的所有顶点。这棵有向树的根结点为 s ，树的每条路径都是有向图中的一条最短路径<br>
 
-:::mermaid
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'background': '#0d1117',
+    'primaryColor': '#21262d',
+    'primaryTextColor': '#c9d1d9',
+    'primaryBorderColor': '#30363d',
+    'lineColor': '#8b949e',
+    'edgeLabelBackground': 'transparent'
+  }
+}}%%
 graph TD;
     0 --100--> 5;
     0 --30--> 4;
@@ -5159,7 +5170,20 @@ graph TD;
     2 --50--> 3;
     3 --10--> 5;
     4 --60--> 5;
-:::
+
+    classDef blue fill:#1f6feb,stroke:#58a6ff,color:#ffffff;
+    classDef green fill:#238636,stroke:#3fb950,color:#ffffff;
+    classDef purple fill:#8957e5,stroke:#bc8cff,color:#ffffff;
+    classDef orange fill:#9e6a03,stroke:#d29922,color:#ffffff;
+    classDef red fill:#da3633,stroke:#f85149,color:#ffffff;
+
+    class 0 blue;
+    class 1 green;
+    class 2 purple;
+    class 3 orange;
+    class 4 red;
+    class 5 blue;
+```
 
 |S|V-S|1|2|3|4|5|
 |--|--|--|--|--|--|--|
