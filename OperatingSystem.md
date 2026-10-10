@@ -81,7 +81,7 @@ $$
 $$
 \begin{array}{ccccccc}
 \text{编译 \qquad} & & \text{链接 \qquad} & & \text{装入 } \\
-\text{\# vi hello.c} \quad \text{\# gcc -c hello.c} & & \text{\# gcc -o hello.o} & & \# \text{./hello} \\
+\text{\# vi hello.c} \quad \text{\# gcc -c hello.c} & & \text{\# gcc -o hello.o} & & \text{\# ./hello} \\
 \text{hello.c} \qquad\quad \text{hello.o} & & \text{hello} & & 
 \end{array}
 $$
