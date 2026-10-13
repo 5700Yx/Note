@@ -257,13 +257,48 @@ $
 
 ### 盒子模型
 
-- 包括`div`, `span`, `a`，图片、表单元素一律视为文本而非盒子
+- 包括`div`、`span`、`a`，图片、表单元素一律视为文本而非盒子
 - 盒子中有$5$个主要属性
   - `width`
   - `height`
   - `padding`
   - `border`
   - `margin`
+
+## JavaScript
+
+- `HTML`中的`JavaScript`脚本代码必须位于`<sciprt>`与`</script>`标签中
+- 也可以存放在`.js`文件，嵌入到文档中
+    ```javascript
+        <scrtpt src = "javascript.js">
+        </script>
+    ```
+
+### JavaScript基本语法
+
+#### 变量定义
+
+- **只包含字母、数字、下划线**
+- **以字母开头**
+- **不能使用`JavaScript`的保留字**
+- **区分大小写**
+- **变量需要声明，不指定类型**
+    ```javascript
+        var num = 10;
+        var str = "JavaScript";
+    ```
+
+#### 定义函数
+
+- 在`JavaScript`中**定义函数需要使用`function`关键字，无返回类型**
+  - 仅通过如`window.alert()`、`document.write()`等方法输出
+    ```javascript
+        <srcipt language = "JavaScript">
+            function func_1() {
+                // 函数体
+            }
+        </script>
+    ```
 
 # 框架编程
 
