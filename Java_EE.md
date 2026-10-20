@@ -294,11 +294,154 @@ $
   - 仅通过如`window.alert()`、`document.write()`等方法输出
     ```javascript
         <srcipt language = "JavaScript">
-            function func_1() {
+            function func() {
                 // 函数体
             }
         </script>
     ```
 
-# 框架编程
+## JQuery
 
+- `JQuery`库包含以下内容
+  - `HTML`元素选取
+  - `HTML`元素操作
+  - `CSS`操作
+  - `HTML`事件函数
+  - `JavaScript`特效和动画
+  - `HTML`、`DOM`遍历和修改
+
+### JQuery安装
+
+- `$(document).ready()`用于确保在执行任何脚本之前，`DOM`已经完全加载完毕
+    ```HTML
+        <!DOCTYPE html>
+        <html lang = "en">
+            <head>
+                <meta cahrset = "UTF-8">
+                <title>Document</title>
+                <!-- 引入 JQuery -->
+                <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            </head>
+            <body>
+                <script>
+                    $(document).ready(function(){
+                        alert("Ready!");
+                    });
+                </script>
+            </body>
+    ```
+
+### JQuery语法
+
+- **基础语法**：`$(selector).action()`
+    ```javascript
+        $(this).hide();     // 隐藏当前元素
+        $("p").hide();      // 隐藏所有 <p> 元素
+        $("p.text").hide(); // 隐藏所有 class="test" 的元素
+        $("#text").hide();      // 隐藏 id="test" 的元素
+    ```
+---
+
+- **元素选择器**
+  - `JQuery`**元素选择器**基于元素名选取元素
+  - 如`$("p")`为在页面中选取所有`<p>`元素
+  ```html
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){ //为 button 指定点击事件
+                $("p").hide(); //隐藏所有 <p> 元素
+            });
+        });
+    </script>
+  ```
+- **#id选择器**
+  - `JQuery`**#id选择器**通过`HTML`元素的`id`属性选取指定的元素
+  ```html
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){
+                alert("Button1");
+            });
+            $("#button2").click(function(){
+                alert("Button2");
+            });
+        });
+    </script>
+  ```
+- **.class选择器**
+  - `JQuery`**.class选择器**通过指定的`class`查找元素
+  ```html
+    <script>
+        $(document).ready(function(){
+            $(".test").hide();
+        });
+    </script>
+  ```
+### JQuery事件
+
+- 常见`JQuery`事件
+
+|鼠标事件|键盘事件|表单事件|文档/窗口事件|
+|--|--|--|--|
+|click|keypress|submit|load|
+|dblclick|keydown|change|resize|
+|mouseenter|keyup|focus|scroll|
+|mouseleave||blur|unload|
+|hover||||
+
+### JQuery获取内容和属性
+
+- `text()`：设置或返回所选元素的文本文件
+- `html()`：设置或返回所选元素的内容（包括`HTML`标签）
+- `val()`：设置或返回表单字段的值
+
+## Ajax
+
+- `Ajax(Asynchronous JavaScript and XML)`是一种在**无需重新加载整个页面的情况下，能够更新部分页面的技术集合**
+
+### XMLHttpRequest
+
+`XMLHttpRequest`对象是`JavaScript`中的一个内置对象，用于**在浏览器中发布异步`HTTP`请求**。它允许`Web`应用程序在不重新加载整个界面的情况下与服务器交换数据。这意味着**可以在后台加载和检索数据，从而实现动态更新页面内容的功能**
+
+- 发送`get`请求
+    ```javascript
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://example.com/data', true); //第三个参数表示是否异步发送
+        xhr.send(null);
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status <= 300) {
+                console.log(xhr.responseText);
+            } else {
+                console.error(xhr.statusText);
+            }
+        }
+    ```
+- 状态码
+  - `XMLHttpRequest`对象有一个名为`readyState`的属性，它表示请求、响应过程中的不同步骤，共有$5$个状态值
+    - `0 (UNSENT)`：尚未调用`open()`方法
+    - `1 (OPENED)`：已经调用了`open()`方法，但是没有调用`send()`方法
+    - `2 (HEADERS_RECIVED)`：已经调用了`send()`方法，接收到所有响应头，正在下载响应体
+    - `3 (LOADING)`：正在下载响应体
+    - `4 (DONE)`：请求完成，响应已经准备好
+- 响应处理<br>
+$\qquad$一旦请求完成并且`readyState`达到$4$，可以通过监听`onload`事件赖处理响应数据
+- `XMLHttpRequest`对象提供了属性响应数据：
+  - `responsText`：包含响应的文本形式
+  - `responseXML`：如果响应是`XML`文档，则包含`XML`文档对象
+  - `responseType`：指定响应的数据类型，如`arraybuffer`、`blob`、`document`、`json`、`text`
+  - `respons`：根据`responseType`属性，包含响应数据
+    ```javascript
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+                // 输出字符串形式的 JSON 文本
+                // 解析 JSON 数据
+                var data = JSON.parse(xhr.requestText);
+                console.log(data);
+                // 输出解析后的 JS 对象/数组，可在看控制台展开查看属性
+            }
+        }
+    ```
+## Bootstrap
+
+# 框架编程
